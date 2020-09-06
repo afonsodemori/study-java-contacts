@@ -3,33 +3,21 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
+    <TextView
+        android:id="@+id/contact1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName" />
+        android:text="TextView" />
 
-    <EditText
-        android:id="@+id/editTextTextEmailAddress"
+    <TextView
+        android:id="@+id/contact2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Email address"
-        android:inputType="textEmailAddress" />
+        android:text="TextView" />
 
-    <EditText
-        android:id="@+id/editTextTextPassword"
+    <TextView
+        android:id="@+id/contact3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Do nothing" />
+        android:text="TextView" />
 </LinearLayout>
