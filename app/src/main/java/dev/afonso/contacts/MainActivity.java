@@ -2,6 +2,8 @@ package dev.afonso.contacts;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,18 +22,12 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         List<String> contacts = new ArrayList<>(Arrays.asList(
-                "Paco",
-                "Quique",
-                "Charo"
+                "Paco", "Quique", "Charo", "Beth", "John", "Adam", "Claire", "Joe", "Paul", "Nicky",
+                "Gina", "Bob", "Peter", "Jack", "Janine", "Martha", "George", "Lisa", "Steve"
         ));
 
-        TextView contact1 = findViewById(R.id.contact1);
-        TextView contact2 = findViewById(R.id.contact2);
-        TextView contact3 = findViewById(R.id.contact3);
-
-        contact1.setText(contacts.get(0));
-        contact2.setText(contacts.get(1));
-        contact3.setText(contacts.get(2));
+        ListView contactsList = findViewById(R.id.activity_main_list_contacts);
+        contactsList.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, contacts));
     }
 
     // Other tests
