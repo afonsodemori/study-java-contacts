@@ -11,6 +11,7 @@ public class MainActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Toast.makeText(this, "onCreate", Toast.LENGTH_SHORT).show();
+        setContentView(R.layout.activity_main);
     }
 
     // Other tests
