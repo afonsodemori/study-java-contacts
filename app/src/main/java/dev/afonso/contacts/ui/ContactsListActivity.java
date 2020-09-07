@@ -55,8 +55,7 @@ public class ContactsListActivity extends AppCompatActivity {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        menu.add("Edit");
-        menu.add("Delete");
+        getMenuInflater().inflate(R.menu.activity_contacts_list_menu, menu);
     }
 
     @Override
