@@ -14,6 +14,14 @@ public class ContactDAO {
         contacts.add(contact);
     }
 
+    public static void update(Contact contact) {
+        (find(contact.getId()))
+                .setName(contact.getName())
+                .setPhone(contact.getPhone())
+                .setEmail(contact.getEmail())
+        ;
+    }
+
     public static List<Contact> all() {
         List<Contact> result = new ArrayList<>(contacts);
         Collections.sort(result, Contact::compareTo);
@@ -22,9 +30,9 @@ public class ContactDAO {
     }
 
     public static Contact find(long id) {
-        for (Contact c : contacts) {
-            if (c.getId() == id) {
-                return c;
+        for (Contact contact : contacts) {
+            if (contact.getId() == id) {
+                return contact;
             }
         }
 

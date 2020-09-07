@@ -28,12 +28,10 @@ public class ContactsListActivity extends AppCompatActivity {
 
         loadFakeContacts();
 
-        ((FloatingActionButton) findViewById(R.id.activity_main_fab_add)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ContactsListActivity.this, ContactCreateActivity.class));
-            }
-        });
+        ((FloatingActionButton) findViewById(R.id.activity_main_fab_add))
+                .setOnClickListener((View.OnClickListener) v -> startActivity(
+                        new Intent(ContactsListActivity.this, ContactCreateActivity.class)
+                ));
     }
 
     @Override
@@ -42,18 +40,20 @@ public class ContactsListActivity extends AppCompatActivity {
         ListView contactsList = findViewById(R.id.activity_contacts_list_listView);
         contactsList.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ContactDAO.all()));
 
-        ((ListView) findViewById(R.id.activity_contacts_list_listView)).setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Contact ref = ContactDAO.all().get(position);
+        ((ListView) findViewById(R.id.activity_contacts_list_listView)).setOnItemClickListener((parent, view, position, id) -> {
+            Contact ref = ContactDAO.all().get(position);
 
-                try {
-                    Contact contact = ContactDAO.find(ref.getId());
-                    Log.i(getLocalClassName(), "Loading contact " + contact.getId() + " for edition.");
-                } catch (NoSuchElementException e) {
-                    Toast.makeText(ContactsListActivity.this, "Contact not found.", Toast.LENGTH_SHORT).show();
-                    Log.e(getLocalClassName(), "Contact " + ref.getId() + " not found.");
-                }
+            try {
+                Contact contact = ContactDAO.find(ref.getId());
+                Log.i(getLocalClassName(), "Loading contact " + contact.getId() + " for edition.");
+
+                startActivity(
+                        (new Intent(ContactsListActivity.this, ContactCreateActivity.class))
+                                .putExtra("contact", contact)
+                );
+            } catch (NoSuchElementException e) {
+                Toast.makeText(ContactsListActivity.this, "Contact not found.", Toast.LENGTH_SHORT).show();
+                Log.e(getLocalClassName(), "Contact " + ref.getId() + " not found.");
             }
         });
     }
