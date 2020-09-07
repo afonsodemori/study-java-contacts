@@ -2,6 +2,7 @@ package dev.afonso.contacts.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -48,9 +49,10 @@ public class ContactsListActivity extends AppCompatActivity {
 
                 try {
                     Contact contact = ContactDAO.find(ref.getId());
-                    Toast.makeText(ContactsListActivity.this, contact.getName(), Toast.LENGTH_SHORT).show();
+                    Log.i(getLocalClassName(), "Loading contact " + contact.getId() + " for edition.");
                 } catch (NoSuchElementException e) {
                     Toast.makeText(ContactsListActivity.this, "Contact not found.", Toast.LENGTH_SHORT).show();
+                    Log.e(getLocalClassName(), "Contact " + ref.getId() + " not found.");
                 }
             }
         });
