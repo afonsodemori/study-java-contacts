@@ -11,13 +11,15 @@ public class Contact implements Comparable, Serializable {
 
     private static long lastId = 0;
 
-    private final long id;
+    private long id;
     private String name;
     private String phone;
     private String email;
 
+    public Contact() {
+    }
+
     public Contact(String name, String phone, String email) {
-        this.id = ++lastId;
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -32,6 +34,20 @@ public class Contact implements Comparable, Serializable {
     @Override
     public int compareTo(Object o) {
         return this.name.compareTo(((Contact) o).getName());
+    }
+
+    public boolean hasValidId() {
+        return this.id > 0;
+    }
+
+    public Contact generateId() throws Exception {
+        if (this.hasValidId()) {
+            // TODO: Read more about java exception classes
+            throw new Exception("Trying to generate ID for a Contact with a valid ID.");
+        }
+
+        this.id = ++lastId;
+        return this;
     }
 
     public long getId() {

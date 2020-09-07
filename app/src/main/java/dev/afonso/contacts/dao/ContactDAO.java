@@ -10,16 +10,14 @@ import dev.afonso.contacts.model.Contact;
 public class ContactDAO {
     private static List<Contact> contacts = new ArrayList<>();
 
-    public static void save(Contact contact) {
+    public static void save(Contact contact) throws Exception {
+        contact.generateId();
         contacts.add(contact);
     }
 
     public static void update(Contact contact) {
-        (find(contact.getId()))
-                .setName(contact.getName())
-                .setPhone(contact.getPhone())
-                .setEmail(contact.getEmail())
-        ;
+        Contact originalContact = find(contact.getId());
+        contacts.set(contacts.indexOf(originalContact), contact);
     }
 
     public static List<Contact> all() {
