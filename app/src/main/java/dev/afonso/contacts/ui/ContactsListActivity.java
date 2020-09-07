@@ -3,15 +3,12 @@ package dev.afonso.contacts.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.NoSuchElementException;
 
@@ -32,21 +29,24 @@ public class ContactsListActivity extends AppCompatActivity {
 
         loadFakeContacts();
 
-        ((FloatingActionButton) findViewById(R.id.activity_main_fab_add))
-                .setOnClickListener((View.OnClickListener) v -> startActivity(
+        findViewById(R.id.activity_main_fab_add)
+                .setOnClickListener(v -> startActivity(
                         new Intent(ContactsListActivity.this, ContactCreateUpdateActivity.class)
                 ));
+
+        setUpContactsList();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        setUpContactsList();
+        adapter.clear();
+        adapter.addAll(ContactDAO.all());
     }
 
     private void setUpContactsList() {
         ListView contactsList = findViewById(R.id.activity_contacts_list_listView);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ContactDAO.all());
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         contactsList.setAdapter(adapter);
 
         contactsList.setOnItemClickListener((parent, view, position, id) -> {
