@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +24,9 @@ import dev.afonso.contacts.model.Contact;
 import static dev.afonso.contacts.ui.Constants.KEY_CONTACT;
 
 public class ContactsListActivity extends AppCompatActivity {
+
+    public static final String CONTEXT_ACTION_EDIT = "Edit";
+    public static final String CONTEXT_ACTION_DELETE = "Delete";
 
     private ArrayAdapter<Contact> adapter;
 
@@ -53,6 +59,26 @@ public class ContactsListActivity extends AppCompatActivity {
         menu.add("Delete");
     }
 
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        Contact contact = adapter.getItem(menuInfo.position);
+
+        // TODO: Handling multiple menu items is not covered by the course by now. Look for a better way to do it.
+        String title = (String) item.getTitle();
+        switch (title) {
+            case CONTEXT_ACTION_EDIT:
+                openEditionForm(contact);
+                break;
+            case CONTEXT_ACTION_DELETE:
+                ContactDAO.remove(contact);
+                adapter.remove(contact);
+                break;
+        }
+
+        return super.onContextItemSelected(item);
+    }
+
     private void setUpContactsList() {
         ListView contactsList = findViewById(R.id.activity_contacts_list_listView);
         setAdapter(contactsList);
@@ -72,16 +98,19 @@ public class ContactsListActivity extends AppCompatActivity {
             try {
                 Contact contact = ContactDAO.find(clicked.getId());
                 Log.i(getLocalClassName(), "Loading contact " + contact.getId() + " for edition.");
-
-                startActivity(
-                        (new Intent(ContactsListActivity.this, ContactCreateUpdateActivity.class))
-                                .putExtra(KEY_CONTACT, contact)
-                );
+                openEditionForm(contact);
             } catch (NoSuchElementException e) {
                 Toast.makeText(ContactsListActivity.this, "Contact not found.", Toast.LENGTH_SHORT).show();
                 Log.e(getLocalClassName(), "Contact " + clicked.getId() + " not found.");
             }
         });
+    }
+
+    private void openEditionForm(Contact contact) {
+        startActivity(
+                (new Intent(this, ContactCreateUpdateActivity.class))
+                        .putExtra(KEY_CONTACT, contact)
+        );
     }
 
     private void loadFakeContacts() {
