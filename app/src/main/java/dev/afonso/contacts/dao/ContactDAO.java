@@ -20,6 +20,10 @@ public class ContactDAO {
         contacts.set(contacts.indexOf(originalContact), contact);
     }
 
+    public static void remove(Contact contact) {
+        contacts.remove(contact);
+    }
+
     public static List<Contact> all() {
         List<Contact> result = new ArrayList<>(contacts);
         Collections.sort(result, Contact::compareTo);

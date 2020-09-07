@@ -22,6 +22,9 @@ import dev.afonso.contacts.model.Contact;
 import static dev.afonso.contacts.ui.Constants.KEY_CONTACT;
 
 public class ContactsListActivity extends AppCompatActivity {
+
+    private ArrayAdapter<Contact> adapter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +41,15 @@ public class ContactsListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        ListView contactsList = findViewById(R.id.activity_contacts_list_listView);
-        contactsList.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ContactDAO.all()));
+        setUpContactsList();
+    }
 
-        ((ListView) findViewById(R.id.activity_contacts_list_listView)).setOnItemClickListener((parent, view, position, id) -> {
+    private void setUpContactsList() {
+        ListView contactsList = findViewById(R.id.activity_contacts_list_listView);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ContactDAO.all());
+        contactsList.setAdapter(adapter);
+
+        contactsList.setOnItemClickListener((parent, view, position, id) -> {
             Contact clicked = (Contact) parent.getItemAtPosition(position);
 
             try {
@@ -56,6 +64,14 @@ public class ContactsListActivity extends AppCompatActivity {
                 Toast.makeText(ContactsListActivity.this, "Contact not found.", Toast.LENGTH_SHORT).show();
                 Log.e(getLocalClassName(), "Contact " + clicked.getId() + " not found.");
             }
+        });
+
+        contactsList.setOnItemLongClickListener((parent, view, position, id) -> {
+            Log.i(getLocalClassName(), "Long clicked " + position);
+            Contact contact = (Contact) parent.getItemAtPosition(position);
+            ContactDAO.remove(contact);
+            adapter.remove(contact);
+            return true;
         });
     }
 
