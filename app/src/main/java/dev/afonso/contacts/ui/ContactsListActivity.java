@@ -3,6 +3,8 @@ package dev.afonso.contacts.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -44,11 +46,26 @@ public class ContactsListActivity extends AppCompatActivity {
         adapter.addAll(ContactDAO.all());
     }
 
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        menu.add("Edit");
+        menu.add("Delete");
+    }
+
     private void setUpContactsList() {
         ListView contactsList = findViewById(R.id.activity_contacts_list_listView);
+        setAdapter(contactsList);
+        registerForContextMenu(contactsList);
+        setOnItemClickListener(contactsList);
+    }
+
+    private void setAdapter(ListView contactsList) {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         contactsList.setAdapter(adapter);
+    }
 
+    private void setOnItemClickListener(ListView contactsList) {
         contactsList.setOnItemClickListener((parent, view, position, id) -> {
             Contact clicked = (Contact) parent.getItemAtPosition(position);
 
@@ -64,14 +81,6 @@ public class ContactsListActivity extends AppCompatActivity {
                 Toast.makeText(ContactsListActivity.this, "Contact not found.", Toast.LENGTH_SHORT).show();
                 Log.e(getLocalClassName(), "Contact " + clicked.getId() + " not found.");
             }
-        });
-
-        contactsList.setOnItemLongClickListener((parent, view, position, id) -> {
-            Log.i(getLocalClassName(), "Long clicked " + position);
-            Contact contact = (Contact) parent.getItemAtPosition(position);
-            ContactDAO.remove(contact);
-            adapter.remove(contact);
-            return true;
         });
     }
 
