@@ -1,7 +1,9 @@
 package dev.afonso.contacts.dao;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import dev.afonso.contacts.model.Contact;
 
@@ -13,6 +15,19 @@ public class ContactDAO {
     }
 
     public static List<Contact> all() {
-        return new ArrayList<>(contacts);
+        List<Contact> result = new ArrayList<>(contacts);
+        Collections.sort(result, Contact::compareTo);
+
+        return result;
+    }
+
+    public static Contact find(long id) {
+        for (Contact c : contacts) {
+            if (c.getId() == id) {
+                return c;
+            }
+        }
+
+        throw new NoSuchElementException("Contact not found.");
     }
 }
