@@ -32,7 +32,11 @@ public class ContactsListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts_list);
 
-        loadFakeContacts();
+        if (Contact.getLastId() == 0) {
+            // Avoid creating duplicate entries when rotating the phone or rerunning onCreate for
+            // another reason. We only load the initial set of contacts if none were created before.
+            loadFakeContacts();
+        }
 
         findViewById(R.id.activity_main_fab_add)
                 .setOnClickListener(v -> startActivity(
