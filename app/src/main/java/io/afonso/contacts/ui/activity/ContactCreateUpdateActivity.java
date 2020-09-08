@@ -1,4 +1,4 @@
-package io.afonso.contacts.ui;
+package io.afonso.contacts.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import io.afonso.contacts.R;
 import io.afonso.contacts.dao.ContactDAO;
 import io.afonso.contacts.model.Contact;
 
-import static io.afonso.contacts.ui.Constants.KEY_CONTACT;
+import static io.afonso.contacts.ui.activity.Constants.KEY_CONTACT;
 
 public class ContactCreateUpdateActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package io.afonso.contacts.ui;
+package io.afonso.contacts.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,7 +21,7 @@ import io.afonso.contacts.dao.ContactDAO;
 import io.afonso.contacts.model.Contact;
 import io.afonso.contacts.ui.adapter.ContactsListAdapter;
 
-import static io.afonso.contacts.ui.Constants.KEY_CONTACT;
+import static io.afonso.contacts.ui.activity.Constants.KEY_CONTACT;
 
 public class ContactsListActivity extends AppCompatActivity {
 
@@ -49,8 +49,7 @@ public class ContactsListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        adapter.clear();
-        adapter.addAll(ContactDAO.all());
+        adapter.update(ContactDAO.all());
     }
 
     @Override

@@ -16,7 +16,7 @@ import io.afonso.contacts.model.Contact;
 
 public class ContactsListAdapter extends BaseAdapter {
     private final List<Contact> contacts = new ArrayList<>();
-    private Context context;
+    private final Context context;
 
     public ContactsListAdapter(Context context) {
         this.context = context;
@@ -55,12 +55,10 @@ public class ContactsListAdapter extends BaseAdapter {
         return view;
     }
 
-    public void clear() {
+    public void update(List<Contact> contacts) {
         contacts.clear();
-    }
-
-    public void addAll(List<Contact> contacts) {
         this.contacts.addAll(contacts);
+        notifyDataSetChanged();
     }
 
     public void remove(Contact contact) {
