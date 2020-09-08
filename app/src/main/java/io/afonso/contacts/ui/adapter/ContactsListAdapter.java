@@ -56,7 +56,7 @@ public class ContactsListAdapter extends BaseAdapter {
     }
 
     public void update(List<Contact> contacts) {
-        contacts.clear();
+        this.contacts.clear();
         this.contacts.addAll(contacts);
         notifyDataSetChanged();
     }
