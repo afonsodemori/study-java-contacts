@@ -7,7 +7,6 @@ import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -20,12 +19,13 @@ import java.util.NoSuchElementException;
 import io.afonso.contacts.R;
 import io.afonso.contacts.dao.ContactDAO;
 import io.afonso.contacts.model.Contact;
+import io.afonso.contacts.ui.adapter.ContactsListAdapter;
 
 import static io.afonso.contacts.ui.Constants.KEY_CONTACT;
 
 public class ContactsListActivity extends AppCompatActivity {
 
-    private ArrayAdapter<Contact> adapter;
+    private ContactsListAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -85,7 +85,7 @@ public class ContactsListActivity extends AppCompatActivity {
     }
 
     private void setAdapter(ListView contactsList) {
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+        adapter = new ContactsListAdapter(this);
         contactsList.setAdapter(adapter);
     }
 
