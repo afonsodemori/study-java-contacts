@@ -36,10 +36,6 @@ public class Contact implements Comparable, Serializable {
         return this.name.compareTo(((Contact) o).getName());
     }
 
-    public static long getLastId() {
-        return lastId;
-    }
-
     public boolean hasValidId() {
         return this.id > 0;
     }
