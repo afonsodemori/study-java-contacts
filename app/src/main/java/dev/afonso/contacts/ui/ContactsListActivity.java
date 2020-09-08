@@ -25,9 +25,6 @@ import static dev.afonso.contacts.ui.Constants.KEY_CONTACT;
 
 public class ContactsListActivity extends AppCompatActivity {
 
-    public static final String CONTEXT_ACTION_EDIT = "Edit";
-    public static final String CONTEXT_ACTION_DELETE = "Delete";
-
     private ArrayAdapter<Contact> adapter;
 
     @Override
@@ -63,13 +60,11 @@ public class ContactsListActivity extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         Contact contact = adapter.getItem(menuInfo.position);
 
-        // TODO: Handling multiple menu items is not covered by the course by now. Look for a better way to do it.
-        String title = (String) item.getTitle();
-        switch (title) {
-            case CONTEXT_ACTION_EDIT:
+        switch (item.getItemId()) {
+            case R.id.activity_contacts_list_menu_edit:
                 openEditionForm(contact);
                 break;
-            case CONTEXT_ACTION_DELETE:
+            case R.id.activity_contacts_list_menu_delete:
                 ContactDAO.remove(contact);
                 adapter.remove(contact);
                 break;
