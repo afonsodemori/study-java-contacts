@@ -1,11 +1,11 @@
-package dev.afonso.contacts.dao;
+package io.afonso.contacts.dao;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import dev.afonso.contacts.model.Contact;
+import io.afonso.contacts.model.Contact;
 
 public class ContactDAO {
     private static List<Contact> contacts = new ArrayList<>();

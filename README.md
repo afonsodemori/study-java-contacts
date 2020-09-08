@@ -68,8 +68,8 @@ The apk can be downloaded at https://afonso.io/app/contacts.
 # Screenshots
 
 <div style="float:left;">
-  <img src="https://static.afonso.io/dev.afonso.contacts/screenshots/Screenshot_1599534595.png" width="300">
-  <img src="https://static.afonso.io/dev.afonso.contacts/screenshots/Screenshot_1599534599.png" width="300">
-  <img src="https://static.afonso.io/dev.afonso.contacts/screenshots/Screenshot_1599534607.png" width="300">
-  <img src="https://static.afonso.io/dev.afonso.contacts/screenshots/Screenshot_1599534615.png" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/001.png" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/002.png" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/003.png" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/004.png" width="300">
 </div>

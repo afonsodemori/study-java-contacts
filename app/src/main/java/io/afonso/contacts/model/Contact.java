@@ -1,4 +1,4 @@
-package dev.afonso.contacts.model;
+package io.afonso.contacts.model;
 
 import androidx.annotation.NonNull;
 

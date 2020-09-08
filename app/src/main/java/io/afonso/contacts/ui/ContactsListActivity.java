@@ -1,4 +1,4 @@
-package dev.afonso.contacts.ui;
+package io.afonso.contacts.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,11 +17,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.NoSuchElementException;
 
-import dev.afonso.contacts.R;
-import dev.afonso.contacts.dao.ContactDAO;
-import dev.afonso.contacts.model.Contact;
+import io.afonso.contacts.R;
+import io.afonso.contacts.dao.ContactDAO;
+import io.afonso.contacts.model.Contact;
 
-import static dev.afonso.contacts.ui.Constants.KEY_CONTACT;
+import static io.afonso.contacts.ui.Constants.KEY_CONTACT;
 
 public class ContactsListActivity extends AppCompatActivity {
 
