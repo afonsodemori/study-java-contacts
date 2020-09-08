@@ -11,8 +11,8 @@ The apk can be downloaded at https://afonso.io/app/contacts.
 
 ### I. Android essentials
 
-- ✅ Android part 1: Create your first mobile app _- [see certificate](https://google.es)_
-- ✅ Android part 2: Moving forward with listeners, menu and UI _- [see certificate](https://google.es)_
+- ✅ Android part 1: Create your first mobile app _- [see certificate](https://cursos.alura.com.br/certificate/7ec88e25-aeae-4cb7-820e-5c2197bdd708)_
+- ✅ Android part 2: Moving forward with listeners, menu and UI _- [see certificate](https://cursos.alura.com.br/certificate/025b4c07-e8a5-4405-9060-65a33f2e13b8)_
 - ⬜️ Android part 3: Refining the project _- in progress_
 
 <details>
@@ -48,21 +48,21 @@ The apk can be downloaded at https://afonso.io/app/contacts.
 
 ### II. Complex layouts
 
-- ⬜️ Layouts Android parte 1: Criando telas com Constraint Layouts
-- ⬜️ Layouts Android parte 2: Boas práticas para criação de telas
+- ⬜️ Android layouts part 1: Creating screens with Constraint Layouts
+- ⬜️ Android layouts part 2: Good practices for creating screens
 
 
 ### III. Better lists with RecyclerView
 
-- ⬜️ Layouts Android parte 1: Criando telas com Constraint Layouts
-- ⬜️ Layouts Android parte 2: Boas práticas para criação de telas
+- ⬜️ Recycler View part 1: Flexible and performing lists
+- ⬜️ RecyclerView part 2: Listeners, animations and good practices.
 
 
 ### IV. Integrating with APIs
 
-- ⬜️ Android Room parte 1: Introdução a persistência de dados com ORM
-- ⬜️ Android Room parte 2: Operações assíncronas
-- ⬜️ Android: Acessando uma API web
+- ⬜️ Android Room part 1: Introduction to data persistence with ORM
+- ⬜️ Android Room part 2: Asynchronous operations
+- ⬜️ Android: Accessing a web API
 
 
 # Screenshots
