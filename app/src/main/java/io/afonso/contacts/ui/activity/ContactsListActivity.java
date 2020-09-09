@@ -36,7 +36,7 @@ public class ContactsListActivity extends AppCompatActivity {
 
         findViewById(R.id.activity_main_fab_add)
                 .setOnClickListener(v -> startActivity(
-                        new Intent(ContactsListActivity.this, ContactCreateUpdateActivity.class)
+                        new Intent(ContactsListActivity.this, ContactFormActivity.class)
                 ));
 
         setUpContactsList();
@@ -109,7 +109,7 @@ public class ContactsListActivity extends AppCompatActivity {
 
     private void openEditionForm(Contact contact) {
         startActivity(
-                (new Intent(this, ContactCreateUpdateActivity.class))
+                (new Intent(this, ContactFormActivity.class))
                         .putExtra(KEY_CONTACT, contact)
         );
     }

@@ -9,7 +9,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/activity_contact_create_name"
+            android:id="@+id/activity_contact_form_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -18,7 +18,7 @@
             android:inputType="textCapWords" />
 
         <EditText
-            android:id="@+id/activity_contact_create_phone"
+            android:id="@+id/activity_contact_form_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -27,7 +27,7 @@
             android:inputType="phone" />
 
         <EditText
-            android:id="@+id/activity_contact_create_email"
+            android:id="@+id/activity_contact_form_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"

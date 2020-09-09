@@ -15,7 +15,7 @@ import io.afonso.contacts.model.Contact;
 
 import static io.afonso.contacts.ui.activity.Constants.KEY_CONTACT;
 
-public class ContactCreateUpdateActivity extends AppCompatActivity {
+public class ContactFormActivity extends AppCompatActivity {
 
     public static final String TITLE_BAR_NEW = "New contact";
     public static final String TITLE_BAR_UPDATE = "Edit contact";
@@ -29,29 +29,29 @@ public class ContactCreateUpdateActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact_create);
+        setContentView(R.layout.activity_contact_form);
         initializeFields();
         loadContact();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_contacts_list_options_menu, menu);
+        getMenuInflater().inflate(R.menu.activity_contact_form_options_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.activity_contacts_list_menu_save) {
+        if (item.getItemId() == R.id.activity_contact_form_options_menu_save) {
             saveForm();
         }
         return super.onOptionsItemSelected(item);
     }
 
     private void initializeFields() {
-        fieldName = findViewById(R.id.activity_contact_create_name);
-        fieldPhone = findViewById(R.id.activity_contact_create_phone);
-        fieldEmail = findViewById(R.id.activity_contact_create_email);
+        fieldName = findViewById(R.id.activity_contact_form_name);
+        fieldPhone = findViewById(R.id.activity_contact_form_phone);
+        fieldEmail = findViewById(R.id.activity_contact_form_email);
     }
 
     private void loadContact() {
