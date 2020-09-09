@@ -21,7 +21,12 @@ public class ContactDAO {
     }
 
     public static void remove(Contact contact) {
-        contacts.remove(contact);
+        contact.setActive(false);
+    }
+
+    // TODO: Better way to do this?
+    public static void undoRemove(Contact contact) {
+        contact.setActive(true);
     }
 
     public static List<Contact> all() {
@@ -29,6 +34,21 @@ public class ContactDAO {
         Collections.sort(result, Contact::compareTo);
 
         return result;
+    }
+
+    public static List<Contact> allActive() {
+        List<Contact> result = new ArrayList<>(contacts);
+        List<Contact> filteredResult = new ArrayList<>();
+
+        for (Contact contact : result) {
+            if (contact.isActive()) {
+                filteredResult.add(contact);
+            }
+        }
+
+        Collections.sort(filteredResult, Contact::compareTo);
+
+        return filteredResult;
     }
 
     public static Contact find(long id) {

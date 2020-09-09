@@ -15,6 +15,8 @@ public class Contact implements Comparable, Serializable {
     private String name;
     private String phone;
     private String email;
+    // TODO: Manage dates to delete trashed contacts after X days
+    private boolean active = true;
 
     public Contact() {
     }
@@ -78,6 +80,15 @@ public class Contact implements Comparable, Serializable {
 
     public Contact setEmail(String email) {
         this.email = email;
+        return this;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public Contact setActive(boolean active) {
+        this.active = active;
         return this;
     }
 }
