@@ -11,9 +11,9 @@ The apk can be downloaded at https://afonso.io/app/contacts.
 
 ### I. Android essentials
 
-- ✅ Android part 1: Create your first mobile app _- [see certificate](https://cursos.alura.com.br/certificate/7ec88e25-aeae-4cb7-820e-5c2197bdd708)_
-- ✅ Android part 2: Moving forward with listeners, menu and UI _- [see certificate](https://cursos.alura.com.br/certificate/025b4c07-e8a5-4405-9060-65a33f2e13b8)_
-- ⬜️ Android part 3: Refining the project _- in progress_
+- ✅ Android part 1: Create your first mobile app _- [certificate](https://cursos.alura.com.br/certificate/7ec88e25-aeae-4cb7-820e-5c2197bdd708)_
+- ✅ Android part 2: Moving forward with listeners, menu and UI _- [certificate](https://cursos.alura.com.br/certificate/025b4c07-e8a5-4405-9060-65a33f2e13b8)_
+- ⬜️ Android part 3: Refining the project _- in progress (51%)_
 
 <details>
   <summary>Details</summary>
@@ -68,8 +68,9 @@ The apk can be downloaded at https://afonso.io/app/contacts.
 # Screenshots
 
 <div style="float:left;">
-  <img src="https://static.afonso.io/contacts/screenshots/001.png" width="300">
-  <img src="https://static.afonso.io/contacts/screenshots/002.png" width="300">
-  <img src="https://static.afonso.io/contacts/screenshots/003.png" width="300">
-  <img src="https://static.afonso.io/contacts/screenshots/004.png" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/1599611890.png" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/1599611904.png" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/1599612045.png" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/1599612073.png" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/1599612079.png" width="300">
 </div>
