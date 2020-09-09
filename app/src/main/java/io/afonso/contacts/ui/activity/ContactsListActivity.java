@@ -1,5 +1,6 @@
 package io.afonso.contacts.ui.activity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -62,8 +63,7 @@ public class ContactsListActivity extends AppCompatActivity {
                 openEditionForm(contact);
                 break;
             case R.id.activity_contacts_list_menu_delete:
-                ContactDAO.remove(contact);
-                adapter.remove(contact);
+                buildDeleteDialog(contact);
                 break;
         }
 
@@ -95,6 +95,20 @@ public class ContactsListActivity extends AppCompatActivity {
                 Log.e(getLocalClassName(), "Contact " + clicked.getId() + " not found.");
             }
         });
+    }
+
+    private void buildDeleteDialog(Contact contact) {
+        new AlertDialog
+                .Builder(this)
+                .setTitle("Delete contact")
+                .setMessage("Remove \"" + contact.getName() + "\" from your contacts?")
+                .setPositiveButton("Remove", (dialog, which) -> {
+                    ContactDAO.remove(contact);
+                    adapter.remove(contact);
+                })
+                .setNegativeButton("Cancel", null)
+                .show()
+        ;
     }
 
     private void openEditionForm(Contact contact) {
