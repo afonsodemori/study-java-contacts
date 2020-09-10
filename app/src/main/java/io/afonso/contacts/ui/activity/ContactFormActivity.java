@@ -14,13 +14,16 @@ import io.afonso.contacts.dao.ContactDAO;
 import io.afonso.contacts.model.Contact;
 
 import static io.afonso.contacts.ui.activity.Constants.KEY_CONTACT;
+import static io.afonso.contacts.ui.activity.Constants.KEY_READ_ONLY;
 
 public class ContactFormActivity extends AppCompatActivity {
 
     public static final String TITLE_BAR_NEW = "New contact";
     public static final String TITLE_BAR_UPDATE = "Edit contact";
+    public static final String TITLE_BAR_READONLY = "Contact details";
 
     private Contact contact;
+    private boolean isReadOnly;
 
     private EditText fieldName;
     private EditText fieldPhone;
@@ -36,7 +39,9 @@ public class ContactFormActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_contact_form_options_menu, menu);
+        if (!isReadOnly) {
+            getMenuInflater().inflate(R.menu.activity_contact_form_options_menu, menu);
+        }
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -57,6 +62,7 @@ public class ContactFormActivity extends AppCompatActivity {
     private void loadContact() {
         Intent intent = getIntent();
         contact = (Contact) intent.getSerializableExtra(KEY_CONTACT);
+        isReadOnly = intent.getBooleanExtra(KEY_READ_ONLY, false);
 
         if (contact == null) {
             setTitle(TITLE_BAR_NEW);
@@ -64,6 +70,13 @@ public class ContactFormActivity extends AppCompatActivity {
         } else {
             setTitle(TITLE_BAR_UPDATE);
             fillForm();
+        }
+
+        if (isReadOnly) {
+            setTitle(TITLE_BAR_READONLY);
+            fieldName.setEnabled(false);
+            fieldPhone.setEnabled(false);
+            fieldEmail.setEnabled(false);
         }
     }
 

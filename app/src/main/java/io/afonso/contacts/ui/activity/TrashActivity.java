@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -25,6 +24,7 @@ import io.afonso.contacts.model.Contact;
 import io.afonso.contacts.ui.adapter.ContactsListAdapter;
 
 import static io.afonso.contacts.ui.activity.Constants.KEY_CONTACT;
+import static io.afonso.contacts.ui.activity.Constants.KEY_READ_ONLY;
 
 public class TrashActivity extends AppCompatActivity {
 
@@ -107,6 +107,7 @@ public class TrashActivity extends AppCompatActivity {
         startActivity(
                 (new Intent(this, ContactFormActivity.class))
                         .putExtra(KEY_CONTACT, contact)
+                .putExtra(KEY_READ_ONLY, true)
         );
     }
 
