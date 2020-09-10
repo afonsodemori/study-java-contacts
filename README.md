@@ -68,9 +68,19 @@ The apk can be downloaded at https://afonso.io/app/contacts.
 # Screenshots
 
 <div style="float:left;">
-  <img src="https://static.afonso.io/contacts/screenshots/1599611890.png" width="300">
-  <img src="https://static.afonso.io/contacts/screenshots/1599611904.png" width="300">
-  <img src="https://static.afonso.io/contacts/screenshots/1599612045.png" width="300">
-  <img src="https://static.afonso.io/contacts/screenshots/1599612073.png" width="300">
-  <img src="https://static.afonso.io/contacts/screenshots/1599612079.png" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/create-edit-20200910-2.gif" alt="create and edit" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/trash-20200910.gif" alt="trash" width="300">
+</div>
+
+<hr>
+
+<div style="float:left;">
+  <img src="https://static.afonso.io/contacts/screenshots/1599707204.png" alt="home" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/1599707310.png" alt="new" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/1599707226.png" alt="delete" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/1599707233.png" alt="trash" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/1599707239.png" alt="trash menu" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/1599707661.png" alt="context menu" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/1599707241.png" alt="empty trash" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/1599707322.png" alt="about" width="300">
 </div>
