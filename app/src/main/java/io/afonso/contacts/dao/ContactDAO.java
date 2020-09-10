@@ -25,12 +25,30 @@ public class ContactDAO {
         contacts.remove(contact);
     }
 
+    public static void realRemove(List<Contact> contacts) {
+        for (Contact contact : contacts) {
+            realRemove(contact);
+        }
+    }
+
     public static void remove(Contact contact) {
         contact.setActive(false);
     }
 
+    public static void remove(List<Contact> contacts) {
+        for (Contact contact : contacts) {
+            remove(contact);
+        }
+    }
+
     public static void restore(Contact contact) {
         contact.setActive(true);
+    }
+
+    public static void restore(List<Contact> contacts) {
+        for (Contact contact : contacts) {
+            restore(contact);
+        }
     }
 
     public static List<Contact> all() {

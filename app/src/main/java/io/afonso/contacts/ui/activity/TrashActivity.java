@@ -1,21 +1,24 @@
 package io.afonso.contacts.ui.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import io.afonso.contacts.R;
@@ -84,6 +87,34 @@ public class TrashActivity extends AppCompatActivity {
         return super.onContextItemSelected(item);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_trash_options_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.activity_trash_options_menu_restore_all:
+                List<Contact> undo = new ArrayList<>(ContactDAO.allInactive());
+                ContactDAO.restore(ContactDAO.allInactive());
+                adapter.update(ContactDAO.allInactive());
+                View view = findViewById(R.id.activity_trash_listView);
+                Snackbar.make(view, undo.size() + " contacts restored", Snackbar.LENGTH_LONG)
+                        .setAction("Undo", v -> {
+                            // TODO: Is there a better way to undo actions?
+                            ContactDAO.remove(undo);
+                            adapter.update(ContactDAO.allInactive());
+                        }).show();
+                break;
+            case R.id.activity_trash_options_menu_empty:
+                buildDeleteDialog(ContactDAO.allInactive());
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void setAdapter(ListView contactsList) {
         adapter = new ContactsListAdapter(this);
         contactsList.setAdapter(adapter);
@@ -107,8 +138,24 @@ public class TrashActivity extends AppCompatActivity {
         startActivity(
                 (new Intent(this, ContactFormActivity.class))
                         .putExtra(KEY_CONTACT, contact)
-                .putExtra(KEY_READ_ONLY, true)
+                        .putExtra(KEY_READ_ONLY, true)
         );
+    }
+
+    private void buildDeleteDialog(List<Contact> contacts) {
+        new AlertDialog
+                .Builder(this)
+                .setTitle("Empty trash")
+                .setMessage("Delete permanently all contacts in trash? This action can't be undone.")
+                .setPositiveButton("Empty trash", (dialog, which) -> {
+                    for (Contact contact : contacts) {
+                        ContactDAO.realRemove(contact); // TODO: Sad sad sad.
+                        adapter.remove(contact);
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .show()
+        ;
     }
 
     private void buildDeleteDialog(Contact contact) {
