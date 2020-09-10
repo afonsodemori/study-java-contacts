@@ -117,7 +117,7 @@ public class TrashActivity extends AppCompatActivity {
                 .setTitle("Permanently delete contact")
                 .setMessage("Remove \"" + contact.getName() + "\" from your contacts? This action can't be undone.")
                 .setPositiveButton("Delete forever", (dialog, which) -> {
-                    ContactDAO.remove(contact);
+                    ContactDAO.realRemove(contact); // TODO: Sad sad sad.
                     adapter.remove(contact);
                 })
                 .setNegativeButton("Cancel", null)

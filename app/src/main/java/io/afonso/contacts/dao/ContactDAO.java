@@ -20,6 +20,11 @@ public class ContactDAO {
         contacts.set(contacts.indexOf(originalContact), contact);
     }
 
+    // TODO: Saddest method of the code. Replace it with states.
+    public static void realRemove(Contact contact) {
+        contacts.remove(contact);
+    }
+
     public static void remove(Contact contact) {
         contact.setActive(false);
     }
