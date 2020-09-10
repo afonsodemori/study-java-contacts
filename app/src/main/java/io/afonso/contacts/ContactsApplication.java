@@ -20,9 +20,12 @@ public class ContactsApplication extends Application {
             ContactDAO.save(new Contact("Monica Geller-Bing", "555-000004", "monana@afonso.dev"));
             ContactDAO.save(new Contact("Joseph Francis Tribbiani", "555-000005", "ken.adams@afonso.dev"));
             ContactDAO.save(new Contact("Phoebe Buffay-Hannigan", "555-000006", "r_phalange@afonso.dev"));
-            ContactDAO.save(new Contact("Gunther Central Perk", "555-000007", "gunther@afonso.dev"));
+            ContactDAO.save(new Contact("Gunther Central Perk", "555-000007", "iloverachel@afonso.dev"));
             ContactDAO.save(new Contact("Janice Litman", "555-000008", "just.janice@afonso.dev"));
             ContactDAO.save(new Contact("Mike Hannigan", "555-000009", "mr.no-balls@afonso.dev"));
+            // in trash
+            ContactDAO.save((new Contact("Heckles, Mr.", "555-000010", "weird_man@afonso.dev")).setActive(false));
+            ContactDAO.save((new Contact("Julie, from NY", "555-000011", "talker@afonso.dev")).setActive(false));
         } catch (Exception e) {
             e.printStackTrace();
         }

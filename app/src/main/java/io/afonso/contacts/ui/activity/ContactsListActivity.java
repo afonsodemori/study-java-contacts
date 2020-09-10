@@ -35,7 +35,7 @@ public class ContactsListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts_list);
 
-        findViewById(R.id.activity_main_fab_add)
+        findViewById(R.id.activity_contacts_list_fab_add)
                 .setOnClickListener(v -> startActivity(
                         new Intent(ContactsListActivity.this, ContactFormActivity.class)
                 ));
@@ -72,7 +72,7 @@ public class ContactsListActivity extends AppCompatActivity {
                 Snackbar.make(view, "Contact sent to trash", Snackbar.LENGTH_LONG)
                         .setAction("Undo", v -> {
                             // TODO: Is there a better way to undo actions?
-                            ContactDAO.undoRemove(contact);
+                            ContactDAO.restore(contact);
                             adapter.update(ContactDAO.allActive());
                         }).show();
                 break;

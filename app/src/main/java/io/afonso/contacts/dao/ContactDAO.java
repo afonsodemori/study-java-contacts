@@ -24,8 +24,7 @@ public class ContactDAO {
         contact.setActive(false);
     }
 
-    // TODO: Better way to do this?
-    public static void undoRemove(Contact contact) {
+    public static void restore(Contact contact) {
         contact.setActive(true);
     }
 
@@ -42,6 +41,22 @@ public class ContactDAO {
 
         for (Contact contact : result) {
             if (contact.isActive()) {
+                filteredResult.add(contact);
+            }
+        }
+
+        Collections.sort(filteredResult, Contact::compareTo);
+
+        return filteredResult;
+    }
+
+    // TODO: Duplicated code. Bad bad code...
+    public static List<Contact> allInactive() {
+        List<Contact> result = new ArrayList<>(contacts);
+        List<Contact> filteredResult = new ArrayList<>();
+
+        for (Contact contact : result) {
+            if (!contact.isActive()) {
                 filteredResult.add(contact);
             }
         }
