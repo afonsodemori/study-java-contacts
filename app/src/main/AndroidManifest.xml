@@ -10,6 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.activity.AboutActivity"></activity>
+        <activity android:name=".ui.activity.TrashActivity" />
         <activity android:name=".ui.activity.ContactsListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

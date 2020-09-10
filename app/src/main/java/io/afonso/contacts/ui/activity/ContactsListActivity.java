@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -78,6 +79,32 @@ public class ContactsListActivity extends AppCompatActivity {
         }
 
         return super.onContextItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_contacts_list_options_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Intent intent = null;
+
+        switch (item.getItemId()) {
+            case R.id.activity_contacts_list_options_menu_trash:
+                intent = new Intent(this, TrashActivity.class);
+                break;
+            case R.id.activity_contacts_list_options_menu_about:
+                intent = new Intent(this, AboutActivity.class);
+                break;
+        }
+
+        if (intent != null) {
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void setUpContactsList() {
