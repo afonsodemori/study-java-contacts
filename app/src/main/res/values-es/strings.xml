@@ -22,7 +22,10 @@
     <string name="dialog_trash_delete_permanent_message">Borrar permanentemente \"%1$s\" de tus contactos? Esta operación es irreversible.</string>
     <string name="dialog_trash_delete_permanent_title">Borrar permanentemente</string>
     <string name="dialog_trash_empty_button_positive">Vaciar</string>
-    <string name="dialog_trash_empty_message">Borrar permanentemente %1$d contactos? Esta operación es irreversible.</string>
+    <plurals name="dialog_trash_empty_message">
+        <item quantity="one">Borrar permanentemente %d contacto? Esta operación es irreversible.</item>
+        <item quantity="other">Borrar permanentemente %d contactos? Esta operación es irreversible.</item>
+    </plurals>
     <string name="dialog_trash_empty_title">Vaciar papelera</string>
     <string name="form_email_address">Correo electrónico</string>
     <string name="form_full_name">Nombre completo</string>
@@ -32,7 +35,10 @@
     <string name="layout_about_signature">--\nAfonso de Mori\nIngeniero de Software\nMadrid, España</string>
     <string name="message_contact_not_found">Contacto no encontrado</string>
     <string name="message_contact_restored">Contacto restaurado</string>
-    <string name="message_contacts_restores">%1$d contactos restaurados</string>
+    <plurals name="message_contacts_restores">
+        <item quantity="one">%d contacto restaurado</item>
+        <item quantity="other">%d contactos restaurados</item>
+    </plurals>
     <string name="message_sent_to_trash">Contacto enviado a la Papelera</string>
     <string name="message_trash_auto_clean">Los contactos que hayan estado en la Papelera más de 30 días se eliminarán automáticamente.</string>
 </resources>

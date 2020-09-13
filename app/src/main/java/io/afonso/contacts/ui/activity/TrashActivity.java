@@ -110,7 +110,7 @@ public class TrashActivity extends AppCompatActivity {
                 ContactDAO.restore(ContactDAO.allInactive());
                 adapter.update(ContactDAO.allInactive());
                 View view = findViewById(R.id.activity_trash_listView);
-                Snackbar.make(view, getString(R.string.message_contacts_restores, undo.size()), Snackbar.LENGTH_LONG)
+                Snackbar.make(view, getResources().getQuantityString(R.plurals.message_contacts_restores, undo.size(), undo.size()), Snackbar.LENGTH_LONG)
                         .setAction(R.string.action_undo, v -> {
                             // TODO: Is there a better way to undo actions?
                             ContactDAO.remove(undo);
@@ -155,7 +155,7 @@ public class TrashActivity extends AppCompatActivity {
         new AlertDialog
                 .Builder(this)
                 .setTitle(R.string.dialog_trash_empty_title)
-                .setMessage(getString(R.string.dialog_trash_empty_message, contacts.size()))
+                .setMessage(getResources().getQuantityString(R.plurals.dialog_trash_empty_message, contacts.size(), contacts.size()))
                 .setPositiveButton(R.string.dialog_trash_empty_button_positive, (dialog, which) -> {
                     for (Contact contact : contacts) {
                         ContactDAO.realRemove(contact); // TODO: Sad sad sad.

@@ -22,7 +22,10 @@
     <string name="dialog_trash_delete_permanent_message">Remove permanently \"%1$s\" from your contacts? This action can\'t be undone.</string>
     <string name="dialog_trash_delete_permanent_title">Permanently delete</string>
     <string name="dialog_trash_empty_button_positive">Empty trash</string>
-    <string name="dialog_trash_empty_message">Delete permanently %1$d contacts? This action can\'t be undone.</string>
+    <plurals name="dialog_trash_empty_message">
+        <item quantity="one">Delete permanently %d contact? This action can\'t be undone.</item>
+        <item quantity="other">Delete permanently %d contacts? This action can\'t be undone.</item>
+    </plurals>
     <string name="dialog_trash_empty_title">Empty trash</string>
     <string name="form_email_address">Email address</string>
     <string name="form_full_name">Full name</string>
@@ -32,7 +35,10 @@
     <string name="layout_about_signature">--\nAfonso de Mori\nSoftware Engineer\nMadrid, Spain</string>
     <string name="message_contact_not_found">Contact not found</string>
     <string name="message_contact_restored">Contact restored</string>
-    <string name="message_contacts_restores">%1$d contacts restored</string>
+    <plurals name="message_contacts_restores">
+        <item quantity="one">%d contact restored</item>
+        <item quantity="other">%d contacts restored</item>
+    </plurals>
     <string name="message_sent_to_trash">Contact sent to Trash</string>
     <string name="message_trash_auto_clean">Contacts that have been in Trash more than 30 days will be automatically deleted.</string>
 </resources>
