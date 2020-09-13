@@ -23,6 +23,9 @@
     <string name="form_email_address">Correo electrónico</string>
     <string name="form_full_name">Nombre completo</string>
     <string name="form_phone_number">Teléfono</string>
+    <string name="layout_about_intro">\"Contactos\" es una aplicación basada en la \"Formación Android\" ofrecida por Alura.com.br.</string>
+    <string name="layout_about_links">Repositorio: https://afonso.io/app/contacts/repo\n\nWeb: https://afonsodemori.es\nContacto: https://afonso.io/contacto\nGithub: https://afonso.io/github\nLinkedin: https://afonso.io/linkedin</string>
+    <string name="layout_about_signature">--\nAfonso de Mori\nIngeniero de Software\nMadrid, España</string>
     <string name="message_contact_not_found">Contacto no encontrado</string>
     <string name="message_contact_restored">Contacto restaurado</string>
     <string name="message_contacts_restores">%1$d contactos restaurados</string>

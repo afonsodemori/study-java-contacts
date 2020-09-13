@@ -23,6 +23,9 @@
     <string name="form_email_address">Email address</string>
     <string name="form_full_name">Full name</string>
     <string name="form_phone_number">Phone number</string>
+    <string name="layout_about_intro">\"Contacts\" is an application based on the \"Android Training Course\" offered by Alura.com.br.</string>
+    <string name="layout_about_links">Repository: https://afonso.io/app/contacts/repo\n\nWebsite: https://afonsodemori.com\nContact: https://afonso.io/contact\nGithub: https://afonso.io/github\nLinkedin: https://afonso.io/linkedin</string>
+    <string name="layout_about_signature">--\nAfonso de Mori\nSoftware Engineer\nMadrid, Spain</string>
     <string name="message_contact_not_found">Contact not found</string>
     <string name="message_contact_restored">Contact restored</string>
     <string name="message_contacts_restores">%1$d contacts restored</string>

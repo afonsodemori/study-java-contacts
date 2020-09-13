@@ -12,23 +12,35 @@
         tools:context=".ui.activity.AboutActivity">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/activity_about_intro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autoLink="web"
             android:linksClickable="true"
             android:padding="12dp"
-            android:text="&quot;Contacts&quot; is an application based on the &quot;Android Training Course&quot; offered by Alura.com.br.\n\nRepository: https://afonso.io/app/contacts/repo\n\nWebsite: https://afonsodemori.com\nContact: https://afonso.io/contact\nGithub: https://afonso.io/github\nLinkedin: https://afonso.io/linkedin\n"
+            android:text="@string/layout_about_intro"
             android:textSize="16sp"
             app:lineHeight="30sp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/activity_about_links"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:autoLink="web"
             android:padding="12dp"
-            android:text="--\nAfonso de Mori\nSoftware Engineer\nMadrid, Spain"
+            android:text="@string/layout_about_links"
+            android:textSize="16sp"
+            app:lineHeight="30sp" />
+
+        <TextView
+            android:id="@+id/activity_about_signature"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:autoLink="web"
+            android:padding="12dp"
+            android:text="@string/layout_about_signature"
             android:textSize="16sp" />
     </LinearLayout>
 </ScrollView>
