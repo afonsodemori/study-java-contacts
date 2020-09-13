@@ -51,7 +51,7 @@ public class TrashActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        adapter.update(ContactDAO.allInactive());
+        adapter.update(ContactDAO.findByStatus(Contact.STATUS_TRASHED));
     }
 
     private void setUpContactsList() {
@@ -75,14 +75,14 @@ public class TrashActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.activity_trash_menu_restore:
                 ContactDAO.restore(contact);
-                adapter.update(ContactDAO.allInactive());
+                adapter.update(ContactDAO.findByStatus(Contact.STATUS_TRASHED));
                 // TODO: It works with this view, but is it correct?
                 View view = findViewById(R.id.activity_trash_listView);
                 Snackbar.make(view, R.string.message_contact_restored, Snackbar.LENGTH_LONG)
                         .setAction(R.string.action_undo, v -> {
                             // TODO: Is there a better way to undo actions?
                             ContactDAO.remove(contact);
-                            adapter.update(ContactDAO.allInactive());
+                            adapter.update(ContactDAO.findByStatus(Contact.STATUS_TRASHED));
                         }).show();
                 break;
             case R.id.activity_trash_menu_delete_forever:
@@ -106,19 +106,19 @@ public class TrashActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.activity_trash_options_menu_restore_all:
-                List<Contact> undo = new ArrayList<>(ContactDAO.allInactive());
-                ContactDAO.restore(ContactDAO.allInactive());
-                adapter.update(ContactDAO.allInactive());
+                List<Contact> undo = new ArrayList<>(ContactDAO.findByStatus(Contact.STATUS_TRASHED));
+                ContactDAO.restore(ContactDAO.findByStatus(Contact.STATUS_TRASHED));
+                adapter.update(ContactDAO.findByStatus(Contact.STATUS_TRASHED));
                 View view = findViewById(R.id.activity_trash_listView);
                 Snackbar.make(view, getResources().getQuantityString(R.plurals.message_contacts_restores, undo.size(), undo.size()), Snackbar.LENGTH_LONG)
                         .setAction(R.string.action_undo, v -> {
                             // TODO: Is there a better way to undo actions?
                             ContactDAO.remove(undo);
-                            adapter.update(ContactDAO.allInactive());
+                            adapter.update(ContactDAO.findByStatus(Contact.STATUS_TRASHED));
                         }).show();
                 break;
             case R.id.activity_trash_options_menu_empty:
-                buildDeleteDialog(ContactDAO.allInactive());
+                buildDeleteDialog(ContactDAO.findByStatus(Contact.STATUS_TRASHED));
                 break;
         }
         return super.onOptionsItemSelected(item);

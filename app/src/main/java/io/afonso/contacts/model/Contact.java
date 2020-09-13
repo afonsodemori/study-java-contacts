@@ -3,6 +3,7 @@ package io.afonso.contacts.model;
 import androidx.annotation.NonNull;
 
 import java.io.Serializable;
+import java.util.Date;
 
 // TODO: Read more about Parcelable instead of Serializable
 //       @see https://developer.android.com/reference/android/os/Parcelable.html
@@ -11,12 +12,16 @@ public class Contact implements Comparable, Serializable {
 
     private static long lastId = 0;
 
+    public static int STATUS_ACTIVE = 1;
+    public static int STATUS_TRASHED = 2;
+    public static int STATUS_DELETED = 3;
+
     private long id;
     private String name;
     private String phone;
     private String email;
-    // TODO: Manage dates to delete trashed contacts after X days
-    private boolean active = true;
+    private int status = STATUS_ACTIVE;
+    private Date trashedAt;
 
     public Contact() {
     }
@@ -83,12 +88,21 @@ public class Contact implements Comparable, Serializable {
         return this;
     }
 
-    public boolean isActive() {
-        return active;
+    public int getStatus() {
+        return status;
     }
 
-    public Contact setActive(boolean active) {
-        this.active = active;
+    public Contact setStatus(int status) {
+        this.status = status;
+        return this;
+    }
+
+    public Date getTrashedAt() {
+        return trashedAt;
+    }
+
+    public Contact setTrashedAt(Date trashedAt) {
+        this.trashedAt = trashedAt;
         return this;
     }
 }
