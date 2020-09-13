@@ -2,9 +2,7 @@
 
 **Contacts** is an Android application based on the [Android Training Course](https://cursos.alura.com.br/formacao-android) offered by [Alura](https://www.alura.com.br).
 
-The app is not available in the Play Store yet.
-
-The apk can be downloaded at https://afonso.io/app/contacts.
+<a href="https://play.google.com/store/apps/details?id=io.afonso.contacts"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="200"></a>
 
 
 # Course summary
@@ -84,3 +82,8 @@ The apk can be downloaded at https://afonso.io/app/contacts.
   <img src="https://static.afonso.io/contacts/screenshots/1599707241.png" alt="empty trash" width="300">
   <img src="https://static.afonso.io/contacts/screenshots/1599707322.png" alt="about" width="300">
 </div>
+
+
+___
+_Google Play and the Google Play logo are trademarks of Google LLC.<br>
+App icon made by [Freepik](https://www.flaticon.com/authors/freepik) from [Flaticon](https://www.flaticon.com/)._

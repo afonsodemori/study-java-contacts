@@ -37,7 +37,7 @@ public class TrashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trash);
-        setTitle("Trash");
+        setTitle(R.string.activity_trash);
 
         setUpContactsList();
     }
@@ -72,8 +72,8 @@ public class TrashActivity extends AppCompatActivity {
                 adapter.update(ContactDAO.allInactive());
                 // TODO: It works with this view, but is it correct?
                 View view = findViewById(R.id.activity_trash_listView);
-                Snackbar.make(view, "Contact restored", Snackbar.LENGTH_LONG)
-                        .setAction("Undo", v -> {
+                Snackbar.make(view, R.string.message_contact_restored, Snackbar.LENGTH_LONG)
+                        .setAction(R.string.action_undo, v -> {
                             // TODO: Is there a better way to undo actions?
                             ContactDAO.remove(contact);
                             adapter.update(ContactDAO.allInactive());
@@ -101,8 +101,8 @@ public class TrashActivity extends AppCompatActivity {
                 ContactDAO.restore(ContactDAO.allInactive());
                 adapter.update(ContactDAO.allInactive());
                 View view = findViewById(R.id.activity_trash_listView);
-                Snackbar.make(view, undo.size() + " contacts restored", Snackbar.LENGTH_LONG)
-                        .setAction("Undo", v -> {
+                Snackbar.make(view, getString(R.string.message_contacts_restores, undo.size()), Snackbar.LENGTH_LONG)
+                        .setAction(R.string.action_undo, v -> {
                             // TODO: Is there a better way to undo actions?
                             ContactDAO.remove(undo);
                             adapter.update(ContactDAO.allInactive());
@@ -128,7 +128,7 @@ public class TrashActivity extends AppCompatActivity {
                 Contact contact = ContactDAO.find(clicked.getId());
                 openContactForm(contact);
             } catch (NoSuchElementException e) {
-                Toast.makeText(TrashActivity.this, "Contact not found.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(TrashActivity.this, R.string.message_contact_not_found, Toast.LENGTH_SHORT).show();
                 Log.e(getLocalClassName(), "Contact " + clicked.getId() + " not found.");
             }
         });
@@ -145,15 +145,15 @@ public class TrashActivity extends AppCompatActivity {
     private void buildDeleteDialog(List<Contact> contacts) {
         new AlertDialog
                 .Builder(this)
-                .setTitle("Empty trash")
-                .setMessage("Delete permanently all contacts in trash? This action can't be undone.")
-                .setPositiveButton("Empty trash", (dialog, which) -> {
+                .setTitle(R.string.dialog_trash_empty_title)
+                .setMessage(getString(R.string.dialog_trash_empty_message, contacts.size()))
+                .setPositiveButton(R.string.dialog_trash_empty_button_positive, (dialog, which) -> {
                     for (Contact contact : contacts) {
                         ContactDAO.realRemove(contact); // TODO: Sad sad sad.
                         adapter.remove(contact);
                     }
                 })
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton(R.string.dialog_button_negative, null)
                 .show()
         ;
     }
@@ -161,13 +161,13 @@ public class TrashActivity extends AppCompatActivity {
     private void buildDeleteDialog(Contact contact) {
         new AlertDialog
                 .Builder(this)
-                .setTitle("Permanently delete contact")
-                .setMessage("Remove \"" + contact.getName() + "\" from your contacts? This action can't be undone.")
-                .setPositiveButton("Delete forever", (dialog, which) -> {
+                .setTitle(R.string.dialog_trash_delete_permanent_title)
+                .setMessage(getString(R.string.dialog_trash_delete_permanent_message, contact.getName()))
+                .setPositiveButton(R.string.action_delete, (dialog, which) -> {
                     ContactDAO.realRemove(contact); // TODO: Sad sad sad.
                     adapter.remove(contact);
                 })
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton(R.string.dialog_button_negative, null)
                 .show()
         ;
     }

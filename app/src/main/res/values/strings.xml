@@ -1,3 +1,38 @@
 <resources>
     <string name="app_name">Contacts</string>
+
+    <string name="temp_initial_warning_button_positive">Gotcha</string>
+    <string name="temp_initial_warning_message">This application is under development and it is for studying purposes. By now all the data is reset every time you close the app.</string>
+    <string name="temp_initial_warning_title">Warning</string>
+
+    <string name="action_delete">Delete</string>
+    <string name="action_delete_forever">Delete forever</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_empty_trash">Empty trash</string>
+    <string name="action_restore">Restore</string>
+    <string name="action_restore_all">Restore all</string>
+    <string name="action_save">Save</string>
+    <string name="action_undo">Undo</string>
+    <string name="activity_about">About</string>
+    <string name="activity_contact_form_create">New contact</string>
+    <string name="activity_contact_form_readonly">Contact details</string>
+    <string name="activity_contact_form_update">Edit contact</string>
+    <string name="activity_trash">Trash</string>
+    <string name="dialog_button_negative">Cancel</string>
+    <string name="dialog_trash_delete_permanent_message">Remove permanently \"%1$s\" from your contacts? This action can\'t be undone.</string>
+    <string name="dialog_trash_delete_permanent_title">Permanently delete</string>
+    <string name="dialog_trash_empty_button_positive">Empty trash</string>
+    <string name="dialog_trash_empty_message">Delete permanently %1$d contacts? This action can\'t be undone.</string>
+    <string name="dialog_trash_empty_title">Empty trash</string>
+    <string name="form_email_address">Email address</string>
+    <string name="form_full_name">Full name</string>
+    <string name="form_phone_number">Phone number</string>
+    <string name="layout_about_intro">\"Contacts\" is an application based on the \"Android Training Course\" offered by Alura.com.br.</string>
+    <string name="layout_about_links">Repository: https://afonso.io/app/contacts/repo\n\nWebsite: https://afonsodemori.com\nContact: https://afonso.io/contact\nGithub: https://afonso.io/github\nLinkedin: https://afonso.io/linkedin</string>
+    <string name="layout_about_signature">--\nAfonso de Mori\nSoftware Engineer\nMadrid, Spain</string>
+    <string name="message_contact_not_found">Contact not found</string>
+    <string name="message_contact_restored">Contact restored</string>
+    <string name="message_contacts_restores">%1$d contacts restored</string>
+    <string name="message_sent_to_trash">Contact sent to Trash</string>
+    <string name="message_trash_auto_clean">Contacts that have been in Trash more than 30 days will be automatically deleted.</string>
 </resources>

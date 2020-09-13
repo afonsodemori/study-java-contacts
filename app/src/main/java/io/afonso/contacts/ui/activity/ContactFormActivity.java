@@ -18,10 +18,6 @@ import static io.afonso.contacts.ui.activity.Constants.KEY_READ_ONLY;
 
 public class ContactFormActivity extends AppCompatActivity {
 
-    public static final String TITLE_BAR_NEW = "New contact";
-    public static final String TITLE_BAR_UPDATE = "Edit contact";
-    public static final String TITLE_BAR_READONLY = "Contact details";
-
     private Contact contact;
     private boolean isReadOnly;
 
@@ -31,6 +27,7 @@ public class ContactFormActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getResources().getText(R.string.activity_trash);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_form);
         initializeFields();
@@ -65,15 +62,15 @@ public class ContactFormActivity extends AppCompatActivity {
         isReadOnly = intent.getBooleanExtra(KEY_READ_ONLY, false);
 
         if (contact == null) {
-            setTitle(TITLE_BAR_NEW);
+            setTitle(R.string.activity_contact_form_create);
             contact = new Contact();
         } else {
-            setTitle(TITLE_BAR_UPDATE);
+            setTitle(R.string.activity_contact_form_update);
             fillForm();
         }
 
         if (isReadOnly) {
-            setTitle(TITLE_BAR_READONLY);
+            setTitle(R.string.activity_contact_form_readonly);
             fieldName.setEnabled(false);
             fieldPhone.setEnabled(false);
             fieldEmail.setEnabled(false);

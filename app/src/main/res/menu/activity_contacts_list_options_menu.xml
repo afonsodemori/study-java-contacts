@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
         android:id="@+id/activity_contacts_list_options_menu_trash"
-        android:title="Trash" />
+        android:title="@string/activity_trash" />
     <item
         android:id="@+id/activity_contacts_list_options_menu_about"
-        android:title="About" />
+        android:title="@string/activity_about" />
 </menu>

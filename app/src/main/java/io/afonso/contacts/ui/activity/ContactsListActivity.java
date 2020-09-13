@@ -1,5 +1,6 @@
 package io.afonso.contacts.ui.activity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,6 +42,13 @@ public class ContactsListActivity extends AppCompatActivity {
                 ));
 
         setUpContactsList();
+
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.temp_initial_warning_title)
+                .setMessage(R.string.temp_initial_warning_message)
+                .setPositiveButton(R.string.temp_initial_warning_button_positive, null)
+                .setNegativeButton(null, null)
+                .show();
     }
 
     @Override
@@ -69,8 +77,8 @@ public class ContactsListActivity extends AppCompatActivity {
                 adapter.remove(contact);
                 // TODO: It works with this view, but is it correct?
                 View view = findViewById(R.id.activity_contacts_list_listView);
-                Snackbar.make(view, "Contact sent to trash", Snackbar.LENGTH_LONG)
-                        .setAction("Undo", v -> {
+                Snackbar.make(view, R.string.message_sent_to_trash, Snackbar.LENGTH_LONG)
+                        .setAction(R.string.action_undo, v -> {
                             // TODO: Is there a better way to undo actions?
                             ContactDAO.restore(contact);
                             adapter.update(ContactDAO.allActive());
@@ -128,7 +136,7 @@ public class ContactsListActivity extends AppCompatActivity {
                 Log.i(getLocalClassName(), "Loading contact " + contact.getId() + " for edition.");
                 openEditionForm(contact);
             } catch (NoSuchElementException e) {
-                Toast.makeText(ContactsListActivity.this, "Contact not found.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ContactsListActivity.this, R.string.message_contact_not_found, Toast.LENGTH_SHORT).show();
                 Log.e(getLocalClassName(), "Contact " + clicked.getId() + " not found.");
             }
         });

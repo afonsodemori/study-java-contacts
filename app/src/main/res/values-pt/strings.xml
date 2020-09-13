@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Contatos</string>
+
+    <string name="temp_initial_warning_button_positive">Saquei</string>
+    <string name="temp_initial_warning_message">Este aplicativo está em desenvolvimento e é para fins de estudo. De momento, todos os dados são zerados toda vez que você fecha o aplicativo.</string>
+    <string name="temp_initial_warning_title">Aviso</string>
+
+    <string name="action_delete">Excluir</string>
+    <string name="action_delete_forever">Excluir permanentemente</string>
+    <string name="action_edit">Editar</string>
+    <string name="action_empty_trash">Esvaziar lixeira</string>
+    <string name="action_restore">Restaurar</string>
+    <string name="action_restore_all">Restaurar todos</string>
+    <string name="action_save">Salvar</string>
+    <string name="action_undo">Desfazer</string>
+    <string name="activity_about">Sobre</string>
+    <string name="activity_contact_form_create">Novo contato</string>
+    <string name="activity_contact_form_readonly">Detalhes do contato</string>
+    <string name="activity_contact_form_update">Editar contato</string>
+    <string name="activity_trash">Lixeira</string>
+    <string name="dialog_button_negative">Cancelar</string>
+    <string name="dialog_trash_delete_permanent_message">Excluir permanentemente \"%1$s\" dos seus contatos? Esta açao não pode ser revertida.</string>
+    <string name="dialog_trash_delete_permanent_title">Excluir permanentemente</string>
+    <string name="dialog_trash_empty_button_positive">Esvaziar</string>
+    <string name="dialog_trash_empty_message">Excluir permanentemente %1$d contatos? Esta ação não pode ser revertida.</string>
+    <string name="dialog_trash_empty_title">Esvaziar lixeira</string>
+    <string name="form_email_address">E-mail</string>
+    <string name="form_full_name">Nome completo</string>
+    <string name="form_phone_number">Telefone</string>
+    <string name="layout_about_intro">\"Contatos\" é uma aplicação baseada na \"Formação Android\" oferecida pela Alura.com.br.</string>
+    <string name="layout_about_links">Repositório: https://afonso.io/app/contacts/repo\n\nSite: https://afonsodemori.com/pt\nContato: https://afonso.io/contato\nGithub: https://afonso.io/github\nLinkedin: https://afonso.io/linkedin</string>
+    <string name="layout_about_signature">--\nAfonso de Mori\nEngenheiro de Software\nMadrid, Espanha</string>
+    <string name="message_contact_not_found">Contato não encontrado</string>
+    <string name="message_contact_restored">Contato restaurado</string>
+    <string name="message_contacts_restores">%1$d contatos restaurados</string>
+    <string name="message_sent_to_trash">Contato enviado à Lixeira</string>
+    <string name="message_trash_auto_clean">Os contatos que ficarem na lixeira por mais de 30 dias serão excluídos automaticamente.</string>
+</resources>

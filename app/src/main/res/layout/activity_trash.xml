@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:background="#FFE9A8"
         android:padding="16dp"
-        android:text="Contacts in the trash will be deleted automatically after 7 days (once I implement it xD)"
+        android:text="@string/message_trash_auto_clean"
         android:textAlignment="center"
         android:textSize="16sp" />
 
