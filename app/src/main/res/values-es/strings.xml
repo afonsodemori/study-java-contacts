@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Contactos</string>
 
+    <string name="temp_initial_warning_button_positive">Lo pillo</string>
+    <string name="temp_initial_warning_message">Esta aplicación está en desarrollo y es para fines de estudio. De momento, todos los datos se restablecen cada vez que cierras la aplicación.</string>
+    <string name="temp_initial_warning_title">Aviso</string>
+
     <string name="action_delete">Borrar</string>
     <string name="action_delete_forever">Borrar permanentemente</string>
     <string name="action_edit">Editar</string>

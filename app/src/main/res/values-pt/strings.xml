@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Contatos</string>
 
+    <string name="temp_initial_warning_button_positive">Saquei</string>
+    <string name="temp_initial_warning_message">Este aplicativo está em desenvolvimento e é para fins de estudo. De momento, todos os dados são zerados toda vez que você fecha o aplicativo.</string>
+    <string name="temp_initial_warning_title">Aviso</string>
+
     <string name="action_delete">Excluir</string>
     <string name="action_delete_forever">Excluir permanentemente</string>
     <string name="action_edit">Editar</string>

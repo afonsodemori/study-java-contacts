@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Contacts</string>
 
+    <string name="temp_initial_warning_button_positive">Gotcha</string>
+    <string name="temp_initial_warning_message">This application is under development and it is for studying purposes. By now all the data is reset every time you close the app.</string>
+    <string name="temp_initial_warning_title">Warning</string>
+
     <string name="action_delete">Delete</string>
     <string name="action_delete_forever">Delete forever</string>
     <string name="action_edit">Edit</string>

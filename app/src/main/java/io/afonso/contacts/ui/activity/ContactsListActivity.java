@@ -1,5 +1,6 @@
 package io.afonso.contacts.ui.activity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,6 +42,13 @@ public class ContactsListActivity extends AppCompatActivity {
                 ));
 
         setUpContactsList();
+
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.temp_initial_warning_title)
+                .setMessage(R.string.temp_initial_warning_message)
+                .setPositiveButton(R.string.temp_initial_warning_button_positive, null)
+                .setNegativeButton(null, null)
+                .show();
     }
 
     @Override
