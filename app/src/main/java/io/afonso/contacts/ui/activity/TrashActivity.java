@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -40,6 +41,11 @@ public class TrashActivity extends AppCompatActivity {
         setTitle(R.string.activity_trash);
 
         setUpContactsList();
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override
@@ -96,6 +102,9 @@ public class TrashActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
             case R.id.activity_trash_options_menu_restore_all:
                 List<Contact> undo = new ArrayList<>(ContactDAO.allInactive());
                 ContactDAO.restore(ContactDAO.allInactive());

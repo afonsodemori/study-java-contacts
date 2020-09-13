@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -69,6 +70,9 @@ public class ContactsListActivity extends AppCompatActivity {
         Contact contact = adapter.getItem(menuInfo.position);
 
         switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
             case R.id.activity_contacts_list_menu_edit:
                 openEditionForm(contact);
                 break;
@@ -103,8 +107,8 @@ public class ContactsListActivity extends AppCompatActivity {
             case R.id.activity_contacts_list_options_menu_trash:
                 intent = new Intent(this, TrashActivity.class);
                 break;
-            case R.id.activity_contacts_list_options_menu_about:
-                intent = new Intent(this, AboutActivity.class);
+            case R.id.activity_contacts_list_options_menu_settings:
+                intent = new Intent(this, SettingsActivity.class);
                 break;
         }
 
