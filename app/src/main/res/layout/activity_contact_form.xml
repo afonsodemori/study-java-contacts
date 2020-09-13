@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:ems="10"
-            android:hint="Full name"
+            android:hint="@string/form_full_name"
             android:inputType="textCapWords" />
 
         <EditText
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:ems="10"
-            android:hint="Phone number"
+            android:hint="@string/form_phone_number"
             android:inputType="phone" />
 
         <EditText
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:ems="10"
-            android:hint="Email address"
+            android:hint="@string/form_email_address"
             android:inputType="textEmailAddress" />
     </LinearLayout>
 </ScrollView>

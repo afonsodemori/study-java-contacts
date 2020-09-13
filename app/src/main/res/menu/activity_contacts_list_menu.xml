@@ -3,8 +3,8 @@
 
     <item
         android:id="@+id/activity_contacts_list_menu_edit"
-        android:title="Edit" />
+        android:title="@string/action_edit" />
     <item
         android:id="@+id/activity_contacts_list_menu_delete"
-        android:title="Delete" />
+        android:title="@string/action_delete" />
 </menu>
