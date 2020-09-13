@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import io.afonso.contacts.R;
@@ -30,6 +31,12 @@ public class ContactFormActivity extends AppCompatActivity {
         getResources().getText(R.string.activity_trash);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_form);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
         initializeFields();
         loadContact();
     }
@@ -44,8 +51,13 @@ public class ContactFormActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.activity_contact_form_options_menu_save) {
-            saveForm();
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            case R.id.activity_contact_form_options_menu_save:
+                saveForm();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

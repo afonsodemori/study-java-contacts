@@ -1,7 +1,12 @@
 package io.afonso.contacts.dao;
 
+import android.content.Context;
+import android.util.Log;
+
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -22,7 +27,7 @@ public class ContactDAO {
 
     // TODO: Saddest method of the code. Replace it with states.
     public static void realRemove(Contact contact) {
-        contacts.remove(contact);
+        contact.setStatus(Contact.STATUS_DELETED);
     }
 
     public static void realRemove(List<Contact> contacts) {
@@ -32,7 +37,8 @@ public class ContactDAO {
     }
 
     public static void remove(Contact contact) {
-        contact.setActive(false);
+        contact.setStatus(Contact.STATUS_TRASHED);
+        contact.setTrashedAt(new Date());
     }
 
     public static void remove(List<Contact> contacts) {
@@ -42,7 +48,9 @@ public class ContactDAO {
     }
 
     public static void restore(Contact contact) {
-        contact.setActive(true);
+        contact.setStatus(Contact.STATUS_ACTIVE);
+        // TODO: when a contact is restored and the user clicks "undo", the trashed date is reset
+        contact.setTrashedAt(null);
     }
 
     public static void restore(List<Contact> contacts) {
@@ -58,28 +66,21 @@ public class ContactDAO {
         return result;
     }
 
-    public static List<Contact> allActive() {
+    public static List<Contact> findByStatus(int status) {
         List<Contact> result = new ArrayList<>(contacts);
         List<Contact> filteredResult = new ArrayList<>();
 
-        for (Contact contact : result) {
-            if (contact.isActive()) {
-                filteredResult.add(contact);
-            }
-        }
-
-        Collections.sort(filteredResult, Contact::compareTo);
-
-        return filteredResult;
-    }
-
-    // TODO: Duplicated code. Bad bad code...
-    public static List<Contact> allInactive() {
-        List<Contact> result = new ArrayList<>(contacts);
-        List<Contact> filteredResult = new ArrayList<>();
+        // TODO: Improve this mess...
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.DATE, -30);
 
         for (Contact contact : result) {
-            if (!contact.isActive()) {
+            // TODO: Ugly... but works... but ugly
+            if (contact.getStatus() == status) {
+                if (status == Contact.STATUS_TRASHED && contact.getTrashedAt().before(c.getTime())) {
+                    contact.setStatus(Contact.STATUS_DELETED); // deletes permanently contacts in trash for more than 30 days
+                    continue;
+                }
                 filteredResult.add(contact);
             }
         }

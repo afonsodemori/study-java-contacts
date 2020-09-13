@@ -22,7 +22,10 @@
     <string name="dialog_trash_delete_permanent_message">Excluir permanentemente \"%1$s\" dos seus contatos? Esta açao não pode ser revertida.</string>
     <string name="dialog_trash_delete_permanent_title">Excluir permanentemente</string>
     <string name="dialog_trash_empty_button_positive">Esvaziar</string>
-    <string name="dialog_trash_empty_message">Excluir permanentemente %1$d contatos? Esta ação não pode ser revertida.</string>
+    <plurals name="dialog_trash_empty_message">
+        <item quantity="one">Excluir permanentemente %d contato? Esta ação não pode ser revertida.</item>
+        <item quantity="other">Excluir permanentemente %d contatos? Esta ação não pode ser revertida.</item>
+    </plurals>
     <string name="dialog_trash_empty_title">Esvaziar lixeira</string>
     <string name="form_email_address">E-mail</string>
     <string name="form_full_name">Nome completo</string>
@@ -32,7 +35,10 @@
     <string name="layout_about_signature">--\nAfonso de Mori\nEngenheiro de Software\nMadrid, Espanha</string>
     <string name="message_contact_not_found">Contato não encontrado</string>
     <string name="message_contact_restored">Contato restaurado</string>
-    <string name="message_contacts_restores">%1$d contatos restaurados</string>
+    <plurals name="message_contacts_restores">
+        <item quantity="one">%d contato restaurado</item>
+        <item quantity="other">%d contatos restaurados</item>
+    </plurals>
     <string name="message_sent_to_trash">Contato enviado à Lixeira</string>
     <string name="message_trash_auto_clean">Os contatos que ficarem na lixeira por mais de 30 dias serão excluídos automaticamente.</string>
 </resources>

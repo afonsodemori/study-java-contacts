@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -40,12 +41,17 @@ public class TrashActivity extends AppCompatActivity {
         setTitle(R.string.activity_trash);
 
         setUpContactsList();
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        adapter.update(ContactDAO.allInactive());
+        adapter.update(ContactDAO.findByStatus(Contact.STATUS_TRASHED));
     }
 
     private void setUpContactsList() {
@@ -69,14 +75,14 @@ public class TrashActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.activity_trash_menu_restore:
                 ContactDAO.restore(contact);
-                adapter.update(ContactDAO.allInactive());
+                adapter.update(ContactDAO.findByStatus(Contact.STATUS_TRASHED));
                 // TODO: It works with this view, but is it correct?
                 View view = findViewById(R.id.activity_trash_listView);
                 Snackbar.make(view, R.string.message_contact_restored, Snackbar.LENGTH_LONG)
                         .setAction(R.string.action_undo, v -> {
                             // TODO: Is there a better way to undo actions?
                             ContactDAO.remove(contact);
-                            adapter.update(ContactDAO.allInactive());
+                            adapter.update(ContactDAO.findByStatus(Contact.STATUS_TRASHED));
                         }).show();
                 break;
             case R.id.activity_trash_menu_delete_forever:
@@ -96,20 +102,23 @@ public class TrashActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
             case R.id.activity_trash_options_menu_restore_all:
-                List<Contact> undo = new ArrayList<>(ContactDAO.allInactive());
-                ContactDAO.restore(ContactDAO.allInactive());
-                adapter.update(ContactDAO.allInactive());
+                List<Contact> undo = new ArrayList<>(ContactDAO.findByStatus(Contact.STATUS_TRASHED));
+                ContactDAO.restore(ContactDAO.findByStatus(Contact.STATUS_TRASHED));
+                adapter.update(ContactDAO.findByStatus(Contact.STATUS_TRASHED));
                 View view = findViewById(R.id.activity_trash_listView);
-                Snackbar.make(view, getString(R.string.message_contacts_restores, undo.size()), Snackbar.LENGTH_LONG)
+                Snackbar.make(view, getResources().getQuantityString(R.plurals.message_contacts_restores, undo.size(), undo.size()), Snackbar.LENGTH_LONG)
                         .setAction(R.string.action_undo, v -> {
                             // TODO: Is there a better way to undo actions?
                             ContactDAO.remove(undo);
-                            adapter.update(ContactDAO.allInactive());
+                            adapter.update(ContactDAO.findByStatus(Contact.STATUS_TRASHED));
                         }).show();
                 break;
             case R.id.activity_trash_options_menu_empty:
-                buildDeleteDialog(ContactDAO.allInactive());
+                buildDeleteDialog(ContactDAO.findByStatus(Contact.STATUS_TRASHED));
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -146,7 +155,7 @@ public class TrashActivity extends AppCompatActivity {
         new AlertDialog
                 .Builder(this)
                 .setTitle(R.string.dialog_trash_empty_title)
-                .setMessage(getString(R.string.dialog_trash_empty_message, contacts.size()))
+                .setMessage(getResources().getQuantityString(R.plurals.dialog_trash_empty_message, contacts.size(), contacts.size()))
                 .setPositiveButton(R.string.dialog_trash_empty_button_positive, (dialog, which) -> {
                     for (Contact contact : contacts) {
                         ContactDAO.realRemove(contact); // TODO: Sad sad sad.

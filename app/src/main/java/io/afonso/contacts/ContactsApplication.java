@@ -2,6 +2,8 @@ package io.afonso.contacts;
 
 import android.app.Application;
 
+import java.util.Date;
+
 import io.afonso.contacts.dao.ContactDAO;
 import io.afonso.contacts.model.Contact;
 
@@ -24,8 +26,16 @@ public class ContactsApplication extends Application {
             ContactDAO.save(new Contact("Janice Litman", "555-000008", "just.janice@afonso.dev"));
             ContactDAO.save(new Contact("Mike Hannigan", "555-000009", "mr.no-balls@afonso.dev"));
             // in trash
-            ContactDAO.save((new Contact("Heckles, Mr.", "555-000010", "weird_man@afonso.dev")).setActive(false));
-            ContactDAO.save((new Contact("Julie, from NY", "555-000011", "talker@afonso.dev")).setActive(false));
+            ContactDAO.save(
+                    (new Contact("Heckles, Mr.", "555-000010", "weird_man@afonso.dev"))
+                            .setTrashedAt(new Date())
+                            .setStatus(Contact.STATUS_TRASHED)
+            );
+            ContactDAO.save(
+                    (new Contact("Julie, from NY", "555-000011", "talker@afonso.dev"))
+                            .setTrashedAt(new Date())
+                            .setStatus(Contact.STATUS_TRASHED)
+            );
         } catch (Exception e) {
             e.printStackTrace();
         }

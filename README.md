@@ -11,7 +11,7 @@
 
 - ✅ Android part 1: Create your first mobile app _- [certificate](https://cursos.alura.com.br/certificate/7ec88e25-aeae-4cb7-820e-5c2197bdd708)_
 - ✅ Android part 2: Moving forward with listeners, menu and UI _- [certificate](https://cursos.alura.com.br/certificate/025b4c07-e8a5-4405-9060-65a33f2e13b8)_
-- ⬜️ Android part 3: Refining the project _- in progress (51%)_
+- ✅️ Android part 3: Refining the project _- [certificate](https://cursos.alura.com.br/certificate/7ce1d9d3-34ca-4688-a6db-7ed313720f77)_
 
 <details>
   <summary>Details</summary>
@@ -66,21 +66,12 @@
 # Screenshots
 
 <div style="float:left;">
-  <img src="https://static.afonso.io/contacts/screenshots/create-edit-20200910-2.gif" alt="create and edit" width="300">
-  <img src="https://static.afonso.io/contacts/screenshots/trash-20200910.gif" alt="trash" width="300">
-</div>
-
-<hr>
-
-<div style="float:left;">
-  <img src="https://static.afonso.io/contacts/screenshots/1599707204.png" alt="home" width="300">
-  <img src="https://static.afonso.io/contacts/screenshots/1599707310.png" alt="new" width="300">
-  <img src="https://static.afonso.io/contacts/screenshots/1599707226.png" alt="delete" width="300">
-  <img src="https://static.afonso.io/contacts/screenshots/1599707233.png" alt="trash" width="300">
-  <img src="https://static.afonso.io/contacts/screenshots/1599707239.png" alt="trash menu" width="300">
-  <img src="https://static.afonso.io/contacts/screenshots/1599707661.png" alt="context menu" width="300">
-  <img src="https://static.afonso.io/contacts/screenshots/1599707241.png" alt="empty trash" width="300">
-  <img src="https://static.afonso.io/contacts/screenshots/1599707322.png" alt="about" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/_video.gif" alt="presentation" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/_1600038443.png" alt="home" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/_1600038494.png" alt="create/edit form" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/_1600038596.png" alt="trash" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/_1600038509.png" alt="empty trash" width="300">
+  <img src="https://static.afonso.io/contacts/screenshots/_1600039803.png" alt="about" width="300">
 </div>
 
 

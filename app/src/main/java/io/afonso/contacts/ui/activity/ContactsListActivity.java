@@ -54,7 +54,7 @@ public class ContactsListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        adapter.update(ContactDAO.allActive());
+        adapter.update(ContactDAO.findByStatus(Contact.STATUS_ACTIVE));
     }
 
     @Override
@@ -69,6 +69,9 @@ public class ContactsListActivity extends AppCompatActivity {
         Contact contact = adapter.getItem(menuInfo.position);
 
         switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
             case R.id.activity_contacts_list_menu_edit:
                 openEditionForm(contact);
                 break;
@@ -81,7 +84,7 @@ public class ContactsListActivity extends AppCompatActivity {
                         .setAction(R.string.action_undo, v -> {
                             // TODO: Is there a better way to undo actions?
                             ContactDAO.restore(contact);
-                            adapter.update(ContactDAO.allActive());
+                            adapter.update(ContactDAO.findByStatus(Contact.STATUS_ACTIVE));
                         }).show();
                 break;
         }
