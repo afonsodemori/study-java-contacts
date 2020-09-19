@@ -1,12 +1,16 @@
 package io.afonso.contacts.model;
 
 import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
 // TODO: Read more about Parcelable instead of Serializable
 //       @see https://developer.android.com/reference/android/os/Parcelable.html
 //       @see https://medium.com/@lucas_marciano/por-que-usar-o-parcelable-ao-inv%C3%A9s-do-serializable-5f7543a9c7f3
+@Entity
 public class Contact implements Comparable, Serializable {
 
     private static long lastId = 0;
@@ -15,6 +19,7 @@ public class Contact implements Comparable, Serializable {
     public static int STATUS_TRASHED = 2;
     public static int STATUS_DELETED = 3;
 
+    @PrimaryKey(autoGenerate = true)
     private long id;
     private String name;
     private String phone;
@@ -25,6 +30,7 @@ public class Contact implements Comparable, Serializable {
     public Contact() {
     }
 
+    @Ignore
     public Contact(String name, String phone, String email) {
         this.name = name;
         this.phone = phone;
