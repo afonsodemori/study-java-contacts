@@ -96,10 +96,9 @@ public class ContactFormActivity extends AppCompatActivity {
     }
 
     private void updateContact() {
-        contact
-                .setName(fieldName.getText().toString())
-                .setPhone(fieldPhone.getText().toString())
-                .setEmail(fieldEmail.getText().toString())
+        contact.setName(fieldName.getText().toString());
+        contact.setPhone(fieldPhone.getText().toString());
+        contact.setEmail(fieldEmail.getText().toString());
         ;
     }
 

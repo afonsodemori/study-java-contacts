@@ -26,16 +26,15 @@ public class ContactsApplication extends Application {
             ContactDAO.save(new Contact("Janice Litman", "555-000008", "just.janice@afonso.dev"));
             ContactDAO.save(new Contact("Mike Hannigan", "555-000009", "mr.no-balls@afonso.dev"));
             // in trash
-            ContactDAO.save(
-                    (new Contact("Heckles, Mr.", "555-000010", "weird_man@afonso.dev"))
-                            .setTrashedAt(new Date())
-                            .setStatus(Contact.STATUS_TRASHED)
-            );
-            ContactDAO.save(
-                    (new Contact("Julie, from NY", "555-000011", "talker@afonso.dev"))
-                            .setTrashedAt(new Date())
-                            .setStatus(Contact.STATUS_TRASHED)
-            );
+            Contact contact = new Contact("Heckles, Mr.", "555-000010", "weird_man@afonso.dev");
+            contact.setTrashedAt(new Date().getTime());
+            contact.setStatus(Contact.STATUS_TRASHED);
+            ContactDAO.save(contact);
+
+            contact = new Contact("Julie, from NY", "555-000011", "talker@afonso.dev");
+            contact.setTrashedAt(new Date().getTime());
+            contact.setStatus(Contact.STATUS_TRASHED);
+            ContactDAO.save(contact);
         } catch (Exception e) {
             e.printStackTrace();
         }

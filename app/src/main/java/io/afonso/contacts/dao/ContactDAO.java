@@ -38,7 +38,7 @@ public class ContactDAO {
 
     public static void remove(Contact contact) {
         contact.setStatus(Contact.STATUS_TRASHED);
-        contact.setTrashedAt(new Date());
+        contact.setTrashedAt(new Date().getTime());
     }
 
     public static void remove(List<Contact> contacts) {
@@ -72,12 +72,12 @@ public class ContactDAO {
 
         // TODO: Improve this mess...
         Calendar c = Calendar.getInstance();
-        c.add(Calendar.DATE, -30);
+        c.add(Calendar.SECOND, -10);
 
         for (Contact contact : result) {
             // TODO: Ugly... but works... but ugly
             if (contact.getStatus() == status) {
-                if (status == Contact.STATUS_TRASHED && contact.getTrashedAt().before(c.getTime())) {
+                if (status == Contact.STATUS_TRASHED && contact.getTrashedAt() < c.getTime().getTime()) {
                     contact.setStatus(Contact.STATUS_DELETED); // deletes permanently contacts in trash for more than 30 days
                     continue;
                 }

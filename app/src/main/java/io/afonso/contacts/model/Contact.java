@@ -3,7 +3,6 @@ package io.afonso.contacts.model;
 import androidx.annotation.NonNull;
 
 import java.io.Serializable;
-import java.util.Date;
 
 // TODO: Read more about Parcelable instead of Serializable
 //       @see https://developer.android.com/reference/android/os/Parcelable.html
@@ -21,7 +20,7 @@ public class Contact implements Comparable, Serializable {
     private String phone;
     private String email;
     private int status = STATUS_ACTIVE;
-    private Date trashedAt;
+    private Long trashedAt;
 
     public Contact() {
     }
@@ -61,48 +60,47 @@ public class Contact implements Comparable, Serializable {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
 
-    public Contact setName(String name) {
+    public void setName(String name) {
         this.name = name;
-        return this;
     }
 
     public String getPhone() {
         return phone;
     }
 
-    public Contact setPhone(String phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
-        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public Contact setEmail(String email) {
+    public void setEmail(String email) {
         this.email = email;
-        return this;
     }
 
     public int getStatus() {
         return status;
     }
 
-    public Contact setStatus(int status) {
+    public void setStatus(int status) {
         this.status = status;
-        return this;
     }
 
-    public Date getTrashedAt() {
+    public Long getTrashedAt() {
         return trashedAt;
     }
 
-    public Contact setTrashedAt(Date trashedAt) {
+    public void setTrashedAt(Long trashedAt) {
         this.trashedAt = trashedAt;
-        return this;
     }
 }
